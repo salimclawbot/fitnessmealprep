@@ -20,6 +20,8 @@ const guides = [
   { slug: "levoit-vs-winix-air-purifier", title: "Levoit vs Winix Air Purifier", description: "Head-to-head comparison on CADR, noise, smart features, and filter costs.", category: "Brand Comparison" },
   { slug: "coway-vs-levoit-air-purifier", title: "Coway vs Levoit Air Purifier", description: "Which brand wins on value, airflow, and long-term ownership cost.", category: "Brand Comparison" },
   { slug: "true-hepa-vs-hepa-type", title: "True HEPA vs HEPA-Type", description: "A standards-first guide to filter grades and what actually protects respiratory health.", category: "Education" },
+  { slug: "cadr-rating-explained", title: "CADR Rating Explained", description: "How to read CADR and match purifier performance to room size.", category: "Education" },
+  { slug: "best-air-purifier-allergies", title: "Best Air Purifier for Allergies", description: "Top allergy-focused HEPA picks for pollen, dust mites, pet dander, and mold.", category: "Health Guide" },
 ];
 
 export default function HomePage() {
