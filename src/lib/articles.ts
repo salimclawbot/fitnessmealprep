@@ -24,7 +24,8 @@ const CONTENT_DIR = path.join(process.cwd(), "content");
 function parseJsonField(value: unknown): Record<string, unknown> | null {
   if (!value || typeof value !== "string") return null;
   try {
-    return JSON.parse(value);
+    const normalized = value.replaceAll("https://airpurifierguide.com", "https://airpurifier-site.vercel.app");
+    return JSON.parse(normalized);
   } catch {
     return null;
   }
