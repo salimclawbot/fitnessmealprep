@@ -8,28 +8,20 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    default: "WalkingPadPicks - Best Walking Pad Reviews & Buyer's Guides",
-    template: "%s | WalkingPadPicks",
+    default: "Air Purifier Guide",
+    template: "%s | Air Purifier Guide",
   },
   description:
-    "Find the best walking pad for your home office. Independent reviews, comparisons, and buyer's guides for under-desk treadmills and walking pads.",
-  metadataBase: new URL("https://walking-pad-site.vercel.app"),
+    "Expert air purifier reviews, comparisons, and buying guides for cleaner indoor air.",
+  metadataBase: new URL("https://airpurifierguide.vercel.app"),
   openGraph: {
-    siteName: "WalkingPadPicks",
+    siteName: "Air Purifier Guide",
     type: "website",
     locale: "en_US",
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased`}>

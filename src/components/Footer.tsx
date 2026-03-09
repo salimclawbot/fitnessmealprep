@@ -2,75 +2,26 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
-            <Link href="/" className="text-xl font-bold text-white">
-              Walking<span className="text-teal-400">Pad</span>Picks
-            </Link>
-            <p className="mt-3 text-sm text-gray-400 leading-relaxed">
-              Independent reviews and guides for walking pads and under-desk
-              treadmills. Helping you find the perfect walking pad for your
-              workspace.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
-              Guides
-            </h3>
-            <ul className="space-y-2">
-              {[
-                { href: "/best-walking-pads-2026", label: "Best Walking Pads 2026" },
-                { href: "/best-walking-pad-under-200", label: "Best Under $200" },
-                { href: "/walking-pad-vs-treadmill", label: "Walking Pad vs Treadmill" },
-                { href: "/are-walking-pads-worth-it", label: "Are Walking Pads Worth It?" },
-                { href: "/walking-pad-while-working", label: "Walking Pad While Working" },
-              ].map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-gray-400 hover:text-teal-400 transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
-              Company
-            </h3>
-            <ul className="space-y-2">
-              {[
-                { href: "/about", label: "About Us" },
-                { href: "/contact", label: "Contact" },
-                { href: "/privacy", label: "Privacy Policy" },
-                { href: "/affiliate-disclosure", label: "Affiliate Disclosure" },
-              ].map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-gray-400 hover:text-teal-400 transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+    <footer className="mt-16 border-t border-cyan-100 bg-cyan-50/40">
+      <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 text-sm text-slate-700 sm:px-6 md:grid-cols-3">
+        <div>
+          <h3 className="font-semibold text-slate-900">Air Purifier Guide</h3>
+          <p className="mt-2">Expert air purifier reviews, comparisons, and buying guides for cleaner indoor air.</p>
         </div>
-
-        <div className="mt-10 pt-8 border-t border-gray-800 text-center">
-          <p className="text-sm text-gray-500">
-            &copy; {new Date().getFullYear()} WalkingPadPicks. All rights reserved.
-            Independently owned and operated.
-          </p>
+        <div>
+          <h3 className="font-semibold text-slate-900">Guides</h3>
+          <ul className="mt-2 space-y-1">
+            <li><Link href="/best-air-purifier-asthma" className="hover:text-cyan-700">Best for Asthma</Link></li>
+            <li><Link href="/best-air-purifier-mold" className="hover:text-cyan-700">Best for Mold</Link></li>
+            <li><Link href="/best-air-purifier-baby-room" className="hover:text-cyan-700">Best for Baby Room</Link></li>
+          </ul>
+        </div>
+        <div>
+          <h3 className="font-semibold text-slate-900">Contact</h3>
+          <p className="mt-2">hello@airpurifierguide.com</p>
         </div>
       </div>
+      <div className="border-t border-cyan-100 py-4 text-center text-xs text-slate-500">© {new Date().getFullYear()} Air Purifier Guide</div>
     </footer>
   );
 }
