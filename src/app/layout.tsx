@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   },
   description:
     "Expert air purifier reviews, comparisons, and buying guides for cleaner indoor air.",
-  metadataBase: new URL("https://airpurifierguide.vercel.app"),
+  metadataBase: new URL("https://airpurifierreport.com"),
   openGraph: {
     siteName: "Air Purifier Guide",
     type: "website",

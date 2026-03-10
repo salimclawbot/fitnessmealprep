@@ -4,11 +4,11 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: { absolute: "Air Purifier Guide: Best Picks (2026)" },
   description: "Expert air purifier reviews, comparisons, and buying guides for cleaner indoor air.",
-  alternates: { canonical: "https://airpurifierguide.vercel.app" },
+  alternates: { canonical: "https://airpurifierreport.com" },
   openGraph: {
     title: "Air Purifier Guide: Best Picks (2026)",
     description: "Expert air purifier reviews, comparisons, and buying guides for cleaner indoor air.",
-    url: "https://airpurifierguide.vercel.app",
+    url: "https://airpurifierreport.com",
     type: "website",
   },
 };

@@ -14,11 +14,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: { absolute: article.title },
     description: article.description,
-    alternates: { canonical: `https://airpurifierguide.vercel.app/${article.slug}` },
+    alternates: { canonical: `https://airpurifierreport.com/${article.slug}` },
     openGraph: {
       title: article.title,
       description: article.description,
-      url: `https://airpurifierguide.vercel.app/${article.slug}`,
+      url: `https://airpurifierreport.com/${article.slug}`,
       type: "article",
       siteName: "Air Purifier Guide",
     },
@@ -40,11 +40,11 @@ export default async function ArticlePage({ params }: PageProps) {
       publisher: {
         "@type": "Organization",
         name: "Air Purifier Guide",
-        logo: { "@type": "ImageObject", url: "https://airpurifierguide.vercel.app/icon.svg" },
+        logo: { "@type": "ImageObject", url: "https://airpurifierreport.com/icon.svg" },
       },
       datePublished: article.date,
       dateModified: article.dateModified,
-      mainEntityOfPage: { "@type": "WebPage", "@id": `https://airpurifierguide.vercel.app/${article.slug}` },
+      mainEntityOfPage: { "@type": "WebPage", "@id": `https://airpurifierreport.com/${article.slug}` },
     };
 
   return (

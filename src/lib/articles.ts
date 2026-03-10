@@ -29,7 +29,7 @@ function toSlug(text: string): string {
 function parseJsonField(value: unknown): Record<string, unknown> | null {
   if (!value || typeof value !== "string") return null;
   try {
-    const normalized = value.replaceAll("https://airpurifierguide.com", "https://airpurifier-site.vercel.app");
+    const normalized = value.replaceAll("https://airpurifierguide.com", "https://airpurifierreport.com");
     return JSON.parse(normalized);
   } catch {
     return null;

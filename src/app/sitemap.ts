@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { getAllSlugs } from "@/lib/articles";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://airpurifierguide.vercel.app";
+  const baseUrl = "https://airpurifierreport.com";
   const slugs = getAllSlugs();
 
   return [
