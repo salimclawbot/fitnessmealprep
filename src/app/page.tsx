@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 
 const guides = [
   { slug: "best-air-purifier-pet-dander", title: "Best Air Purifier for Pet Dander and Odours", description: "Top HEPA picks tested for cat hair, dog dander, and stubborn pet smells.", category: "Pet Guide" },
+  { slug: "best-air-purifier-large-rooms", title: "Best Air Purifier for Large Rooms (500+ sq ft)", description: "Top-rated CADR 300+ picks tested in spaces over 500 square feet.", category: "Size Guide" },
   { slug: "best-air-purifier-asthma", title: "Best Air Purifier for Asthma", description: "HEPA-first picks for asthma-sensitive homes.", category: "Health Guide" },
   { slug: "best-air-purifier-mold", title: "Best Air Purifier for Mold", description: "Filter strategy and model picks for mold-prone spaces.", category: "Problem-Solution" },
   { slug: "best-air-purifier-baby-room", title: "Best Air Purifier for Baby Room", description: "Quiet and nursery-friendly purification options.", category: "Family Guide" },
