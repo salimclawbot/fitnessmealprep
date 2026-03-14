@@ -279,6 +279,9 @@ However, the smoke CADR of 175 CFM is the lowest on this list, making the TP09 b
 
 ## Room Size Guide: How to Choose the Right CADR
 
+![Infographic showing CADR requirements for different room sizes to filter wildfire smoke effectively](/images/articles/cadr-room-size-calculator-infographic.jpg)
+
+
 Choosing the right air purifier for wildfire smoke starts with matching the smoke CADR to your room size. The standard formula from AHAM provides a reliable baseline:
 
 > **CADR ≥ Room Square Footage × 0.67**
@@ -345,6 +348,9 @@ Despite these limitations, a Corsi-Rosenthal Box is vastly better than no filtra
 ---
 
 ## When to Run Your Air Purifier
+
+![Infographic showing AQI levels for wildfire smoke and recommended air purifier settings at each level](/images/articles/wildfire-smoke-aqi-action-guide-infographic.jpg)
+
 
 Knowing when and how aggressively to run your wildfire smoke air purifier makes the difference between effective protection and wasted energy or inadequate filtration. Use these AQI-based thresholds to guide your response.
 
