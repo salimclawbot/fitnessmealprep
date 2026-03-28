@@ -14,13 +14,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: { absolute: article.title },
     description: article.description,
-    alternates: { canonical: `https://airpurifierreport.com/${article.slug}` },
+    alternates: { canonical: `https://catcareguides.com/${article.slug}` },
     openGraph: {
       title: article.title,
       description: article.description,
-      url: `https://airpurifierreport.com/${article.slug}`,
+      url: `https://catcareguides.com/${article.slug}`,
+      images: [{ url: `https://catcareguides.com/og-image.svg`, width: 1200, height: 630, alt: article.title }],
       type: "article",
-      siteName: "Air Purifier Guide",
+      siteName: "Cat Care Guides",
     },
   };
 }
@@ -36,15 +37,15 @@ export default async function ArticlePage({ params }: PageProps) {
       "@type": "Article",
       headline: article.title,
       description: article.description,
-      author: { "@type": "Person", name: article.author || "Dr. Alex Chen" },
+      author: { "@type": "Person", name: article.author || "Dr. James Hartley, DVM" },
       publisher: {
         "@type": "Organization",
-        name: "Air Purifier Guide",
-        logo: { "@type": "ImageObject", url: "https://airpurifierreport.com/icon.svg" },
+        name: "Cat Care Guides",
+        logo: { "@type": "ImageObject", url: "https://catcareguides.com/icon.svg" },
       },
       datePublished: article.date,
       dateModified: article.dateModified,
-      mainEntityOfPage: { "@type": "WebPage", "@id": `https://airpurifierreport.com/${article.slug}` },
+      mainEntityOfPage: { "@type": "WebPage", "@id": `https://catcareguides.com/${article.slug}` },
     };
 
   return (
@@ -55,7 +56,7 @@ export default async function ArticlePage({ params }: PageProps) {
       )}
       <p className="text-xs font-semibold uppercase tracking-wide text-cyan-700">{article.category}</p>
       <h1 className="mt-2 text-3xl sm:text-4xl font-extrabold text-slate-900">{article.title}</h1>
-      <p className="mt-3 text-slate-600">By Dr. Alex Chen · Updated {article.dateModified}</p>
+      <p className="mt-3 text-slate-600">By {article.author || "Dr. James Hartley, DVM"} · Updated {article.dateModified}</p>
       <div className="prose prose-slate max-w-none mt-8" dangerouslySetInnerHTML={{ __html: article.htmlContent }} />
     </article>
   );

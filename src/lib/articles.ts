@@ -16,6 +16,7 @@ export interface Article {
   dateModified: string;
   category: string;
   author: string;
+  image: string;
   faqSchema?: Record<string, unknown> | null;
   articleSchema?: Record<string, unknown> | null;
 }
@@ -26,11 +27,22 @@ function toSlug(text: string): string {
   return text.toLowerCase().replace(/[^a-z0-9\s-]/g, "").replace(/\s+/g, "-").replace(/-+/g, "-").trim();
 }
 
+function isPlaceholderFaq(parsed: Record<string, unknown>): boolean {
+  const entities = (parsed.mainEntity as Array<Record<string, unknown>>) || [];
+  if (!entities.length) return false;
+  return entities.every((e: Record<string, unknown>) => {
+    const ans = (e.acceptedAnswer as Record<string, unknown>)?.text as string || "";
+    return ans.includes("See the full guide on ");
+  });
+}
+
 function parseJsonField(value: unknown): Record<string, unknown> | null {
   if (!value || typeof value !== "string") return null;
   try {
-    const normalized = value.replaceAll("https://airpurifierguide.com", "https://airpurifierreport.com");
-    return JSON.parse(normalized);
+    const normalized = value;
+    const parsed = JSON.parse(normalized);
+    if (parsed["@type"] === "FAQPage" && isPlaceholderFaq(parsed)) return null;
+    return parsed;
   } catch {
     return null;
   }
@@ -56,22 +68,32 @@ export async function getArticle(slug: string): Promise<Article | null> {
   const result = await remark().use(remarkGfm).use(html, { sanitize: false }).process(content);
 
   const title = (data.title as string) || slug;
-  const description = (data.meta_description as string) || "Air purifier guide article.";
-  const author = (data.author as string) || "Dr. Alex Chen";
+  const description = (data.meta_description as string) || (data.description as string) || "Cat care guide article.";
+  const author = (data.author as string) || "Dr. Emily Parsons, DVM";
   const date = (data.datePublished as string) || "2026-03-10";
   const dateModified = (data.dateModified as string) || date;
   const category = "Guide";
 
   let htmlContent = result.toString();
 
-  htmlContent = htmlContent.replace(/<(h[2-4])>(.*?)<\/\1>/g, (match, tag, text) => {
-    const cleanText = text.replace(/<[^>]+>/g, "");
-    const id = toSlug(cleanText);
-    return `<${tag} id="${id}">${text}</${tag}>`;
+  htmlContent = htmlContent.replace(/<(h[2-6])>(.*?)<\/\1>/g, (match: string, tag: string, text: string) => {
+    const customIdMatch = text.match(/\{#([^}]+)\}/);
+    let id: string;
+    let displayText = text;
+    if (customIdMatch) {
+      id = customIdMatch[1];
+      displayText = text.replace(/\s*\{#[^}]+\}/, '');
+    } else {
+      const cleanText = text.replace(/<[^>]+>/g, "");
+      id = toSlug(cleanText);
+    }
+    return `<${tag} id="${id}">${displayText}</${tag}>`;
   });
 
   const excerptMatch = parsed.content.match(/\*\*(.*?)\*\*/);
   const excerpt = excerptMatch ? excerptMatch[1].trim() : description;
+
+  const image = (data.image as string) || '/og-image.jpg';
 
   return {
     slug,
@@ -84,6 +106,7 @@ export async function getArticle(slug: string): Promise<Article | null> {
     dateModified,
     category,
     author,
+    image,
     faqSchema: parseJsonField(data.faq_schema),
     articleSchema: parseJsonField(data.article_schema),
   };

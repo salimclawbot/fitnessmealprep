@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { getAllSlugs } from "@/lib/articles";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://airpurifierreport.com";
+  const baseUrl = "https://catcareguides.com";
   const slugs = getAllSlugs();
 
   return [
@@ -12,5 +12,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/contact`, lastModified: new Date() },
     { url: `${baseUrl}/privacy`, lastModified: new Date() },
     { url: `${baseUrl}/affiliate-disclosure`, lastModified: new Date() },
+    { url: `${baseUrl}/terms`, lastModified: new Date() },
   ];
 }
